@@ -38,10 +38,15 @@ Ative o ambiente virtual:
 venv/scripts/activate
 ```
 
-Finalmente, instale os arquivos de `requirements.txt`:
+Instale os arquivos de `requirements.txt`:
 
 ```
 pip install -r requirements.txt
+```
+
+E, caso seja necessário rodar a aplicação localmente:
+```
+uvicorn main:app --reload
 ```
 
 ## Alunos
