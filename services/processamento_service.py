@@ -3,7 +3,6 @@ import os
 from fastapi import HTTPException
 from utils.processamento_parser import parse_processamento
 
-
 CATEGORIAS = {
     "viniferas": "subopt_01",
     "americanas_hibridas": "subopt_02",
@@ -45,4 +44,3 @@ def obter_dados_processamento(ano: int, categoria: str):
         raise HTTPException(status_code=404, detail=f"Não há dados de processamento para {categoria} no ano {ano}.")
 
     return dados
-

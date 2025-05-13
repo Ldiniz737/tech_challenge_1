@@ -5,6 +5,8 @@ from typing import Literal
 from services.producao_service import obter_dados_producao
 from services.comercializacao_service import obter_dados_comercializacao
 from services.processamento_service import obter_dados_processamento
+from services.importacao_service import obter_dados_importacao
+from services.exportacao_service import obter_dados_exportacao
 
 # INSTANCIA A APLICAÇÃO FASTAPI
 app = FastAPI()
@@ -28,4 +30,16 @@ def endpoint_processamento(
     return obter_dados_processamento(ano, categoria)
 
 
+@app.get("/importacao")
+def endpoint_importacao(
+    ano: int,
+    categoria: Literal["vinhos_de_mesa", "espumantes", "uvas_frescas", "uvas_passas", "suco_de_uva"]
+):
+    return obter_dados_importacao(ano, categoria)
 
+@app.get("/exportacao")
+def endpoint_exportacao(
+    ano: int,
+    categoria: Literal["vinhos_de_mesa", "espumantes", "uvas_frescas", "suco_de_uva"]
+):
+    return obter_dados_exportacao(ano, categoria)
